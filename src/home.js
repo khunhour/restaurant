@@ -15,11 +15,10 @@ function displayHome (){
     greeting.appendChild(header);
     header.textContent = "Welcome to Gaijin Sushi";
 
-    const text = document.createElement('pre');
+    const text = document.createElement('div');
     text.classList.add("text");
     greeting.appendChild(text);
-    text.textContent = 'At Gaijin Sushi, \nwe offer authentic japanese cuisine all made by a renowned "gaijin" chef.\nEvery dish is made with ingredients imported from the city of fukushima.\n"fresh and non-radioactive"\nWe guarentee you an immersive experience!\narigatou gozaimasu.';
-
+    text.innerHTML = 'At Gaijin Sushi, <br> we offer authentic japanese cuisine all made by a renowned "gaijin" chef.<br>Every dish is made with ingredients imported from the city of fukushima.<br>"fresh and non-radioactive"<br>We guarentee you an immersive experience!<br>arigatou gozaimasu.';
 }
 
 function displayNav(){
@@ -32,14 +31,14 @@ function displayNav(){
     logo.classList.add('logo');
 
     const logoIcon = document.createElement('img');
-    logoIcon.setAttribute('src', './dist/images/japan.png');
+    logoIcon.setAttribute('src', './images/japan.png');
     logoIcon.setAttribute('alt', 'japan flag');
 
     const logoText = document.createElement('div');
     logoText.textContent = "gaijin sushi";
 
     logo.appendChild(logoIcon);
-    logo.appendChild(logo.text);
+    logo.appendChild(logoText);
     nav.appendChild(logo);
 
     const listContainer = document.createElement('div');
@@ -69,27 +68,66 @@ function displayFooter(){
     const footer = document.createElement('footer');
     content.appendChild(footer);
 
-    const span = document.createElement('span');
-    span.textContent = "&hearts;";
-
     const div = document.createElement('div');
     footer.appendChild(div);
-    div.textContent = `created with ${span} by Khunhour`;
+    div.innerHTML = `created with <span>&hearts;</span> by Khunhour`;
 
     const github = document.createElement('a');
     github.setAttribute("href", "https://github.com/khunhour/restaurant");
     footer.appendChild(github);
 
     const img = document.createElement('img');
-    img.setAttribute("src", ".dist/images/github.png");
+    img.setAttribute("src", "./images/github.png");
     img.setAttribute("alt", "github logo");
     github.appendChild(img);
 
     const p = document.createElement('p');
-    footer.appendChild('p');
+    footer.appendChild(p);
 
+    const photo = document.createTextNode("Animated Photoes Created By ")
     const a = document.createElement('a');
+
     a.setAttribute("href", "https://slimu.tumblr.com/search/sushi");
     a.textContent = "Slimu";
-    p.textContent = `Animited Photoes Created By ${a}`;
+    
+    p.appendChild(photo);
+    p.appendChild(a);
 }
+
+export {displayNav, displayHome, displayFooter};
+
+{/* <nav class="nav">
+            <div class="logo">
+                <img src="images/japan.png" alt="sumo">
+                <div>gaijin sushi</div>
+            </div>
+            <div>
+                <ul class="links">
+                    <li><a class="home" href="#">Home</a></li>
+                    <li><a class="home" href="#">Menu</a></li>
+                    <li><a class="home" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main">
+            <div class="greeting">
+                <div class="header">Welcome to Gaijin Sushi</div>
+                <div class="text">At Gaijin Sushi, <br>
+                    we offer authentic japanese cuisine all made by a renowned "gaijin" chef.<br>
+                    Every dish is made with ingredients imported from the city of fukushima.<br>
+                    "fresh and non-radioactive" <br>
+                    We guarentee you an immersive experience!<br>
+                    arigatou gozaimasu.
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>created with <span>&hearts;</span> by khunhour</div>
+            <a href="https://github.com/khunhour/restaurant">
+                <img src="images/github.png" alt="github icon">
+            </a>
+            <p>
+                Animated Photos created by 
+                <a href="https://slimu.tumblr.com/search/sushi">Slimu</a>
+            </p>
+        </footer> */}

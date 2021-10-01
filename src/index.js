@@ -1,2 +1,5 @@
-console.log("hellooowww!");
-console.log("huh? who?");
+import { displayNav, displayHome, displayFooter } from "./home";
+
+displayNav();
+displayFooter();
+console.log("hi");
