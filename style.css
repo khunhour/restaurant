@@ -13,17 +13,16 @@ body{
     background-image: url('./images/pattern.jpg');
     background-size: cover;
     margin: auto;
-
 }
 #content{
     height:100%;
     display:flex;
     flex-direction: column;
-    
 }
 .nav{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     background-color: #e3deda;
     color:#f11a2c;
@@ -42,6 +41,7 @@ body{
 .nav img{
     width:80px;
     height: 80px;
+    margin: 0 15px;
 }
 .links{
     display: flex;
@@ -55,29 +55,40 @@ body{
 ul{
     list-style-type: none;
     padding:0;
+    margin-bottom: 20px;
 }
 .links li{
     list-style: none;
     box-sizing: border-box;
     margin:0 20px;
 }
-li a{
+.underline{
+    border-bottom: solid 3px red !important;
+}
+.tab{
     text-decoration: none;
     color: #f11a2c;
-    border-bottom: solid 8px transparent;
     padding:10px;
+    /* border-bottom: solid 3px white; */
 }
-li a:hover{
+.tab:hover{
     overflow: hidden;
-    border-bottom: solid 2px red;
+    border-bottom: solid 3px red;
+    text-shadow: 3px 3px white;
 }
-.main ,.menu{
+
+.main ,.menu , .contact{
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    animation: fadein 0.5s;
+}
+@keyframes fadein {
+    from {opacity: 0.85;}
+    to {opacity: 1;}
 }
 .greeting{
     margin:3vmax;
@@ -85,7 +96,7 @@ li a:hover{
     width: 650px;
     padding: 3vmax;
 }
-.header, .menuHeader{
+.header, .menuHeader, .contactHeader{
     text-align: center;
     font-family: japanese;
     color:white;
@@ -126,13 +137,17 @@ footer img:hover{
     background-color: #db2e3c;
     cursor: pointer;
 }
-footer p{
+
+.ref{
+    text-align: center;
     font-size: 17px;
-    padding: 10px 10vw;
+    padding: 0px 10vw;
     border-top: solid 2px #f11a2c;
     margin: 0;
 }
-
+footer p{
+    margin: 3px;
+}
 
 /* css for menu */
 .redBackground{
@@ -156,13 +171,19 @@ footer p{
     height: 350px;
     margin:10px;
     padding:20px;
-    border: solid 0px white;
     box-sizing: border-box;
-    /* border-radius: 10px;; */
+}
+.card:hover{
+    background-color: #af1f2bc4;
+    cursor: pointer;
 }
 .card img{
     width:250px;
     margin-bottom: 10px;
+}
+.cardText{
+    text-align: center;
+    flex:1;
 }
 .info{
     line-height: normal;
@@ -171,18 +192,25 @@ footer p{
     color:white;
     font-size: 25px;
 }
+
+/* css for contact */
+.contactImage{
+    display: block;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
 @media (max-width: 1108px){
     .nav{
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
     }
     .greeting{
         width: 80vw;
     }
 }
-@media (max-width: 430px){
+@media (max-width: 726px){
     .nav{
         font-size: 45px;
     }
@@ -193,40 +221,36 @@ footer p{
     .links{
         font-size: 18px;
     }
-    .header, .menuHeader{
+    .header{
         font-size: 23px;
-        margin-bottom:30px;
     }
     .text{
         font-size: 15px;
         line-height: normal;
     }
     footer{
-        padding: 5px;
         gap: 2px;
         font-size: 14px;
     }
     footer span{
-        font-family: sans-serif;
         font-size: 14px;
     }
     footer img{
         width: 15px;
-        border-radius: 50%;
     }
-    footer p{
+    .ref{
         font-size: 12px;
         padding: 10px 10vw;
-        margin: 0;
     }
     /* css for menu */
     .redBackground{
-        display:flex;
-        flex-direction: column;
         margin: 30 0px;
-        background-color: rgba(252, 61, 61, 0.959);
         width: 85vw;
         padding: 10px;
+    }
+    .menuHeader{
+        font-size: 30px;
+        margin-bottom:0px;
     }
     .cardContainer{
         display: flex;
@@ -235,26 +259,20 @@ footer p{
         
     }
     .card{
-        display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
         height: 140px;
-        margin:10px;
-        padding:20px;
-        border: solid 0px white;
-        box-sizing: border-box;
-        /* border-radius: 10px;; */
+        padding:10px;
     }
     .card img{
-        width:100px;
-        margin-bottom: 10px;
+        width:120px;
+        margin-bottom: auto;
     }
     .info{
-        line-height: normal;
-        letter-spacing: 1.5px;
-        font-family: japanese;
-        color:white;
-        font-size: 15px;
+        font-size: 20px;
+    }
+    /* css for contact */
+    .contactHeader{
+        font-size: 30px;
     }
 }
