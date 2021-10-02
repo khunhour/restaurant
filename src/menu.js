@@ -83,19 +83,24 @@ function displayMenu(){
         img.setAttribute('src', sushi.src);
         card.appendChild(img);
 
+        const cardText = document.createElement('div');
+        cardText.classList.add('cardText');
+        card.appendChild(cardText);
+
         const info = document.createElement('div');
         info.classList.add("info");
         info.textContent = sushi.name;
-        card.appendChild(info);
+        cardText.appendChild(info);
 
         const price = document.createElement('div');
         price.classList.add('info');
         price.textContent = sushi.price;
-        card.appendChild(price);
+        cardText.appendChild(price);
     });
 }
 export {displayMenu}; 
 
+// html version of the above
 {/* <div class="menu">
             <div class="redBackground">
                 <div class="menuHeader">Sushi Menu</div>

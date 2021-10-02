@@ -31,7 +31,7 @@ function displayNav(){
     logo.classList.add('logo');
 
     const logoIcon = document.createElement('img');
-    logoIcon.setAttribute('src', './images/japan.png');
+    logoIcon.setAttribute('src', './images/sushi.png');
     logoIcon.setAttribute('alt', 'japan flag');
 
     const logoText = document.createElement('div');
@@ -48,9 +48,9 @@ function displayNav(){
     nav.appendChild(listContainer);
 
     let listInfo = [
-        {text: "Home", href: "#"},
-        {text: "Menu", href: "#"},
-        {text: "Contact Us", href: "#"}
+        {text: "Home", href: "#", id: "home"},
+        {text: "Menu", href: "#", id: "menu"},
+        {text: "Contact", href: "#", id: "contact"}
     ];
 
     listInfo.forEach((element) =>{
@@ -58,8 +58,10 @@ function displayNav(){
         const link = document.createElement('a');
         list.appendChild(link);
         ul.appendChild(list);
+        link.classList.add("tab");
         link.setAttribute('href', element.href);
         link.textContent = element.text;
+        link.setAttribute('id', element.id);
     });
 }
 
@@ -81,10 +83,15 @@ function displayFooter(){
     img.setAttribute("alt", "github logo");
     github.appendChild(img);
 
-    const p = document.createElement('p');
-    footer.appendChild(p);
+    const ref = document.createElement('div');
+    ref.classList.add("ref");
+    footer.appendChild(ref);
 
-    const photo = document.createTextNode("Animated Photoes Created By ")
+    //slimu photo attribution
+    const p = document.createElement('p');
+    ref.appendChild(p);
+
+    const photo = document.createTextNode("Animated Photoes Created By ");
     const a = document.createElement('a');
 
     a.setAttribute("href", "https://slimu.tumblr.com/search/sushi");
@@ -92,8 +99,13 @@ function displayFooter(){
     
     p.appendChild(photo);
     p.appendChild(a);
-}
 
+    //freepik icon attribution
+    const freepik = document.createElement('p');
+    freepik.innerHTML = '<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>';
+    ref.appendChild(freepik)
+}
+{/* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
 export {displayNav, displayHome, displayFooter};
 
 {/* <nav class="nav">
@@ -126,8 +138,9 @@ export {displayNav, displayHome, displayFooter};
             <a href="https://github.com/khunhour/restaurant">
                 <img src="images/github.png" alt="github icon">
             </a>
-            <p>
-                Animated Photos created by 
-                <a href="https://slimu.tumblr.com/search/sushi">Slimu</a>
+            <div class="ref">
+                <p>Animated Photos created by <a href="https://slimu.tumblr.com/search/sushi">Slimu</a></p>
+                <p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</p>
             </p>
+
         </footer> */}
