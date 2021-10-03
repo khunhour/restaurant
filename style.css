@@ -1,6 +1,6 @@
 @font-face {
     font-family:japanese;
-    src: url(./font/nuku-nuku.regular.ttf);
+    src: url(../dist/font/nuku-nuku.regular.ttf);
 }
 html{
     height:100%;
